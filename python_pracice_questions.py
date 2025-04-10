@@ -781,3 +781,43 @@ if __name__ == "__main__":
     print(find_the_difference("", "y"))          # → "y"
     print(find_the_difference("aabbcc", "abcbcad"))  # → "d"
 
+====================================================================================
+
+from collections import Counter
+
+def first_uniq_char(s: str) -> int:
+    s_dict = Counter(s)
+    for i, ch in enumerate(s):
+        if s_dict[ch] == 1:
+            return i
+    return -1
+
+if __name__ == "__main__":
+    print(first_uniq_char("leetcode"))        # → 0
+    print(first_uniq_char("loveleetcode"))    # → 2
+    print(first_uniq_char("aabb"))  
+
+====================================================================================
+
+def move_zeroes(nums: list[int]) -> None:
+    write = 0
+    for read in range(len(nums)):
+        if(nums[read]!= 0):
+            nums[write] = nums[read]
+            write += 1
+    for i in range(write, len(nums)):
+        nums[i] = 0
+        
+    return nums
+        
+
+if __name__ == "__main__":
+    nums1 = [0,1,0,3,12]
+    move_zeroes(nums1)
+    print(nums1)  # [1, 3, 12, 0, 0]
+
+    nums2 = [0]
+    move_zeroes(nums2)
+    print(nums2)  # [0]
+
+===================================================================================
